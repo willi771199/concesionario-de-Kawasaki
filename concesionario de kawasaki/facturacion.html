@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Factura de Venta</title>
+
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/facturacion.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+<div class="main-container">
+
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+MiTienda
+</div>
+
+
+<ul class="nav-links">
+
+<li>
+<a href="inicio.html">INICIO</a>
+</li>
+
+<li>
+<a href="contizacion.html">COTIZACION</a>
+</li>
+ <li>
+                    <a href="catalogo.html">CATÁLOGO</a>
+                </li>
+
+                <li>
+                    <a href="contacto.html">CONTACTO</a>
+                </li>
+                
+                <li>
+                    <a href="index.html" class="cart-button">
+                        🛒 Carrito
+                    </a>
+                </li>
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<section class="factura-card" id="documento-factura">
+
+
+<header class="factura-header">
+
+
+<div>
+
+<h1>
+KAWA HOUSE
+</h1>
+
+<p>
+NIT: 900.123.456-7
+</p>
+
+<p>
+KAWAHOUSECONCESIONARIO1@GMAIL.COM
+
+</p>
+
+</div>
+
+
+
+<div>
+
+<h2>
+FACTURA DE VENTA
+</h2>
+
+
+<label>
+Número:
+<input id="numero-factura" value="FAC-001">
+</label>
+
+
+<label>
+Fecha:
+<input type="date" id="fecha-factura">
+</label>
+
+
+</div>
+
+
+</header>
+
+
+
+<section class="cliente-container">
+
+<h3>
+Datos del Cliente
+</h3>
+
+
+<input id="cliente" placeholder="Nombre cliente">
+
+<input id="documento" placeholder="Documento">
+
+<input id="correo" placeholder="Correo">
+
+
+</section>
+
+
+
+<table class="tabla-factura">
+
+
+<thead>
+
+<tr>
+
+<th>
+Producto
+</th>
+
+<th>
+Cantidad
+</th>
+
+<th>
+Valor Unitario
+</th>
+
+<th>
+Total
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="factura-body">
+
+</tbody>
+
+
+</table>
+
+
+
+<div class="totales-box">
+
+<p>
+Subtotal:
+<span id="subtotal"></span>
+</p>
+
+
+<p>
+IVA:
+<span id="iva"></span>
+</p>
+
+
+<h3>
+Total:
+<span id="total"></span>
+</h3>
+
+
+</div>
+
+
+
+</section>
+
+
+
+<button id="btn-pdf">
+Generar PDF
+</button>
+
+
+</div>
+
+
+
+<script src="js/facturacion.js"></script>
+
+
+</body>
+</html>

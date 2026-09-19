@@ -1,0 +1,332 @@
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+}
+
+
+/* ENCABEZADO */
+
+header {
+    background-color: #0D0D0D;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    height: 75px;
+    margin: auto;
+    padding: 0 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #76B900;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #BDBDBD;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #76B900;
+}
+
+.nav-links .activo {
+    color: #76B900;
+}
+
+.carrito {
+    background-color: #76B900;
+    color: #FFFFFF !important;
+
+    padding: 10px 18px;
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.carrito:hover {
+    background-color: #9ACD00;
+}
+
+
+/* TÍTULO */
+
+.titulo-catalogo {
+    text-align: center;
+
+    padding: 60px 20px 45px;
+
+    background-color: #0D0D0D;
+}
+
+.titulo-catalogo p {
+    color: #76B900;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.titulo-catalogo h1 {
+    color: #FFFFFF;
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+}
+
+.titulo-catalogo span {
+    color: #BDBDBD;
+
+    font-size: 16px;
+}
+
+
+/* CATÁLOGO */
+
+.catalogo {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 20px 30px 70px;
+}
+
+.catalogo h2 {
+    text-align: center;
+
+    color: #76B900;
+
+    font-size: 27px;
+
+    margin-bottom: 35px;
+}
+
+
+/* PRODUCTOS */
+
+.productos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.producto {
+    background-color: #181A1B;
+
+    border: 1px solid #8A8F93;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.4);
+
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+
+    border-color: #76B900;
+
+    box-shadow:
+        0 8px 18px rgba(118,185,0,0.20);
+}
+
+.producto img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 20px;
+}
+
+.producto-info h3 {
+    color: #FFFFFF;
+
+    font-size: 17px;
+
+    margin-bottom: 12px;
+}
+
+.producto-info p {
+    color: #BDBDBD;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 90px;
+
+    margin-bottom: 15px;
+}
+
+.producto-info strong {
+    display: block;
+
+    color: #76B900;
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+}
+
+.producto-info a {
+    display: block;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background-color: #76B900;
+
+    color: #FFFFFF;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.producto-info a:hover {
+    background-color: #9ACD00;
+}
+
+
+/* INFORMACIÓN */
+
+.informacion {
+    background-color: #181A1B;
+
+    text-align: center;
+
+    padding: 55px 30px;
+
+    border-top: 1px solid #8A8F93;
+}
+
+.informacion h2 {
+    color: #76B900;
+
+    font-size: 26px;
+
+    margin-bottom: 15px;
+}
+
+.informacion p {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #BDBDBD;
+
+    line-height: 1.7;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #181A1B;
+
+    color: #FFFFFF;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 2px solid #76B900;
+}
+
+footer p {
+    font-size: 14px;
+
+    color: #BDBDBD;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .productos-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-catalogo h1 {
+        font-size: 29px;
+    }
+
+}

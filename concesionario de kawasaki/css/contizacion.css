@@ -1,0 +1,298 @@
+/* --- RESET & VARIABLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success-color: #10b91e;
+    --danger-color: #ef4444;
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #cbd5e1;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 950px;
+}
+
+/* --- BOTONES Y FORMULARIOS --- */
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-success { background-color: var(--success-color); color: white; }
+.btn-success:hover { background-color: #059669; }
+
+.btn-danger { background-color: var(--danger-color); color: white; }
+.btn-danger:hover { background-color: #dc2626; }
+
+.btn-eliminar {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+.btn-eliminar:hover { background-color: #fecaca; }
+
+/* --- PANEL DE CONTROL --- */
+.panel-control {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.panel-control h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.form-group input, 
+.form-group textarea, 
+.meta-field input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.panel-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* --- TARJETA DE COTIZACIÓN (DOCUMENTO) --- */
+.cotizacion-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cotizacion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.titulo-empresa {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.empresa-info p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.cotizacion-meta {
+    text-align: right;
+}
+
+.cotizacion-titulo {
+    font-size: 1.8rem;
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+.meta-field {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+}
+
+.meta-field input {
+    width: 130px;
+    text-align: right;
+}
+
+/* CLIENTE */
+.cliente-container {
+    background-color: #f8fafc;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.cliente-container h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #334155;
+}
+
+.cliente-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+/* TABLA */
+.tabla-cotizacion {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.tabla-cotizacion th {
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 10px;
+    font-size: 0.85rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tabla-cotizacion td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.col-cant, .col-precio, .col-total { text-align: right; }
+.tabla-cotizacion th.col-cant, 
+.tabla-cotizacion th.col-precio, 
+.tabla-cotizacion th.col-total { text-align: right; }
+.col-accion { text-align: center; }
+
+.texto-vacio {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 20px !important;
+}
+
+/* TOTALES */
+.totales-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.observaciones {
+    flex: 1;
+}
+
+.observaciones textarea {
+    width: 100%;
+    resize: none;
+}
+
+.totales-box {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.total-linea {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.total-destacado {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-top: 2px solid var(--border-color);
+    padding-top: 8px;
+    margin-top: 4px;
+}
+
+.cotizacion-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+}
+
+/* --- ESTILOS EXCLUSIVOS PARA MODO GENERACIÓN DE PDF / IMPRESIÓN --- */
+.generating-pdf .no-print {
+    display: none !important;
+}
+
+.generating-pdf input, 
+.generating-pdf textarea {
+    border: none !important;
+    background: transparent !important;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.generating-pdf .cotizacion-card {
+    box-shadow: none !important;
+    padding: 20px !important;
+}

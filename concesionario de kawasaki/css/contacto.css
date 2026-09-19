@@ -1,0 +1,619 @@
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+}
+
+
+/* ==================================================
+   ENCABEZADO
+================================================== */
+
+header {
+
+    background-color: #0D0D0D;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.4);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.navbar {
+
+    max-width: 1200px;
+
+    height: 75px;
+
+    margin: auto;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    color: #76B900;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    list-style: none;
+
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #BDBDBD;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+
+}
+
+
+.nav-links a:hover {
+
+    color: #76B900;
+
+}
+
+
+.nav-links .activo {
+
+    color: #76B900;
+
+}
+
+
+.carrito {
+
+    background-color: #76B900;
+
+    color: #FFFFFF !important;
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+
+}
+
+
+.carrito:hover {
+
+    background-color: #9ACD00;
+
+}
+
+
+/* ==================================================
+   TÍTULO
+================================================== */
+
+.titulo-contacto {
+
+    text-align: center;
+
+    padding: 60px 20px 45px;
+
+    background-color: #0D0D0D;
+
+}
+
+
+.titulo-contacto p {
+
+    color: #76B900;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+}
+
+
+.titulo-contacto h1 {
+
+    color: #FFFFFF;
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.titulo-contacto span {
+
+    color: #BDBDBD;
+
+    font-size: 16px;
+
+}
+
+
+/* ==================================================
+   INFORMACIÓN DE CONTACTO
+================================================== */
+
+.informacion-contacto {
+
+    background-color: #181A1B;
+
+    padding: 50px 30px;
+
+}
+
+
+.contacto-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.contacto-card {
+
+    background-color: #0D0D0D;
+
+    border: 1px solid #8A8F93;
+
+    border-radius: 10px;
+
+    padding: 25px 18px;
+
+    text-align: center;
+
+    min-height: 220px;
+
+    transition: 0.3s;
+
+}
+
+
+.contacto-card:hover {
+
+    border-color: #76B900;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 18px rgba(118,185,0,0.15);
+
+}
+
+
+.icono {
+
+    font-size: 38px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.contacto-card h2 {
+
+    color: #76B900;
+
+    font-size: 17px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.contacto-card p {
+
+    color: #FFFFFF;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.contacto-card span {
+
+    color: #BDBDBD;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==================================================
+   FORMULARIO
+================================================== */
+
+.formulario-seccion {
+
+    background-color: #0D0D0D;
+
+    padding: 65px 30px;
+
+}
+
+
+.formulario-contenedor {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+}
+
+
+.formulario-texto {
+
+    padding: 20px;
+
+}
+
+
+.formulario-pequeno {
+
+    color: #76B900;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.formulario-texto h2 {
+
+    color: #FFFFFF;
+
+    font-size: 30px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.formulario-texto > p:last-child {
+
+    color: #BDBDBD;
+
+    line-height: 1.7;
+
+}
+
+
+/* FORMULARIO */
+
+.formulario {
+
+    background-color: #181A1B;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    border: 1px solid #8A8F93;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,0.4);
+
+}
+
+
+.formulario label {
+
+    display: block;
+
+    color: #FFFFFF;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+}
+
+
+.formulario input,
+
+.formulario textarea {
+
+    width: 100%;
+
+    border: 1px solid #8A8F93;
+
+    border-radius: 6px;
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #FFFFFF;
+
+    background-color: #0D0D0D;
+
+}
+
+
+.formulario input:focus,
+
+.formulario textarea:focus {
+
+    border-color: #76B900;
+
+    box-shadow:
+        0 0 0 2px rgba(118,185,0,0.15);
+
+}
+
+
+.formulario textarea {
+
+    resize: vertical;
+
+}
+
+
+.formulario button {
+
+    width: 100%;
+
+    background-color: #76B900;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    padding: 13px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.formulario button:hover {
+
+    background-color: #9ACD00;
+
+}
+
+
+/* ==================================================
+   UBICACIÓN
+================================================== */
+
+.ubicacion {
+
+    background-color: #181A1B;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+}
+
+
+.ubicacion h2 {
+
+    color: #76B900;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.ubicacion > p {
+
+    color: #BDBDBD;
+
+    margin-bottom: 30px;
+
+}
+
+
+.mapa {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 10px;
+
+    background-color: #0D0D0D;
+
+    border: 1px solid #8A8F93;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,0.4);
+
+}
+
+
+.mapa iframe {
+
+    display: block;
+
+    width: 100%;
+
+    border-radius: 7px;
+
+}
+
+
+/* ==================================================
+   PIE DE PÁGINA
+================================================== */
+
+footer {
+
+    background-color: #0D0D0D;
+
+    color: #FFFFFF;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 2px solid #76B900;
+
+}
+
+
+footer p {
+
+    font-size: 14px;
+
+    color: #BDBDBD;
+
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+
+    .contacto-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .formulario-contenedor {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .nav-links {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .contacto-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .titulo-contacto h1 {
+
+        font-size: 29px;
+
+    }
+
+}

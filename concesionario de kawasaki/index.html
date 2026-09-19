@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAWA HOUSE - Catálogo</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">KAWA HOUSE</div>
+
+        <ul class="nav-links">
+            <li><a href="inicio.html">INICIO</a></li>
+            <li><a href="catalogo.html">CATALOGO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="contizacion.html">COTIZACION</a></li>
+             <li><a href="facturacion.html">FACTURA</a></li>
+            <li>
+                <button class="cart-badge-btn">
+                    🛒 Carrito (<span id="cart-count">0</span>)
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="container">
+
+    <main>
+        <h2>Productos Disponibles</h2>
+
+        <div class="products-grid" id="products-grid"></div>
+    </main>
+
+
+    <aside class="cart-section">
+
+        <div class="cart-title">
+            Tu Carrito
+        </div>
+
+
+        <ul class="cart-items" id="cart-items">
+            <p class="empty-cart">
+                El carrito está vacío
+            </p>
+        </ul>
+
+
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">$0.00</span>
+        </div>
+
+
+        <button class="btn-checkout" onclick="generarFactura()">
+            Generar Factura PDF
+        </button>
+
+    </aside>
+
+</div>
+
+
+<script>
+
+const products = [
+    {
+        id: 1,
+        name: "KAWASAKI Z1000",
+        price: 78000000.00,
+        image: "imagenes/kwz100.jpg"
+    },
+    {
+        id: 2,
+        name: "KAWASAKI Z1100",
+        price: 93000000,
+        image: "imagenes/kwz110.jpg"
+    },
+    {
+        id: 3,
+        name: "Ninja H2R",
+        price: 225000000,
+        image: "imagenes/ninh2.png"
+    },
+    {
+        id: 4,
+        name: "NINJA ZX-4R 2026",
+        price: 65990000,
+        image: "imagenes/ninzx.png"
+    },
+    {
+        id: 5,
+        name: "Kawasaki Versys",
+        price: 19000000,
+        image: "imagenes/kver10.jpg"
+    },
+    {
+        id: 6,
+        name: "Kawasaki 6R",
+        price: 87490000,
+        image: "imagenes/kw6R.webp"
+    },
+    {
+        id: 8,
+        name: "Kawasaki Z900",
+        price: 79990000,
+        image: "imagenes/kwz90.webp"
+    }
+];
+
+
+let cart = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+function renderProducts(){
+
+    const grid = document.getElementById("products-grid");
+
+    grid.innerHTML = products.map(product => `
+
+        <div class="product-card">
+
+            <img src="${product.image}" 
+                 alt="${product.name}">
+
+            <h3 class="product-title">
+                ${product.name}
+            </h3>
+
+            <div class="product-price">
+                $${product.price.toLocaleString("es-CO")}
+            </div>
+
+
+            <button class="btn-add"
+              onclick="addToCart(${product.id})">
+
+                Agregar al Carrito
+
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+
+function addToCart(id){
+
+    const product = products.find(
+        p => p.id === id
+    );
+
+
+    const item = cart.find(
+        p => p.id === id
+    );
+
+
+    if(item){
+
+        item.quantity++;
+
+    }else{
+
+        cart.push({
+            ...product,
+            quantity:1
+        });
+
+    }
+
+
+    saveCart();
+    renderCart();
+
+}
+
+
+
+function removeFromCart(id){
+
+    cart = cart.filter(
+        item => item.id !== id
+    );
+
+
+    saveCart();
+    renderCart();
+
+}
+
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+
+function renderCart(){
+
+    const list = document.getElementById("cart-items");
+    const count = document.getElementById("cart-count");
+    const total = document.getElementById("cart-total-price");
+
+
+    let totalItems = cart.reduce(
+        (sum,item) => sum + item.quantity,
+        0
+    );
+
+
+    count.textContent = totalItems;
+
+
+    if(cart.length === 0){
+
+        list.innerHTML =
+        '<p class="empty-cart">El carrito está vacío</p>';
+
+        total.textContent = "$0";
+
+        return;
+
+    }
+
+
+
+    let totalCompra = 0;
+
+
+    list.innerHTML = cart.map(item => {
+
+        let subtotal =
+        item.price * item.quantity;
+
+
+        totalCompra += subtotal;
+
+
+        return `
+
+        <li class="cart-item">
+
+            <div>
+                ${item.name}
+                x${item.quantity}
+                <br>
+                $${subtotal.toLocaleString("es-CO")}
+            </div>
+
+            <button class="btn-remove"
+             onclick="removeFromCart(${item.id})">
+
+             Eliminar
+
+            </button>
+
+        </li>
+
+        `;
+
+    }).join("");
+
+
+    total.textContent =
+    "$" + totalCompra.toLocaleString("es-CO");
+
+}
+
+
+
+
+function generarFactura(){
+
+    if(cart.length === 0){
+
+        alert("El carrito está vacío");
+
+        return;
+
+    }
+
+
+    saveCart();
+
+    window.location.href = "facturacion.html";
+
+}
+
+
+
+renderProducts();
+renderCart();
+
+</script>
+
+
+</body>
+</html>
